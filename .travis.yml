@@ -1,8 +1,9 @@
 language: node_js
 node_js:
-  - "iojs"
-  - "7"
+  - "8.12.0"
 install:
   - npm install
 script:
   - npm test
+notifications:
+  slack: teamfalconi:IaQwx4NNgxe7xXi7ilAJASRk
