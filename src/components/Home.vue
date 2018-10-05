@@ -1,17 +1,22 @@
 <template>
-    <div>
-      <h1>
-        Welcome to the very first commit
-      </h1>
+    <div class="home">
+      <h1>{{ msg }}</h1>
     </div>
 </template>
 
 <script>
 export default {
-  name: 'Home'
+  name: 'Home',
+  data () {
+    return {
+      msg: 'Welcome to the very first commit'
+    }
+  }
 }
 </script>
 
 <style scoped>
-
+  h1, h2 {
+    font-weight: normal;
+  }
 </style>
