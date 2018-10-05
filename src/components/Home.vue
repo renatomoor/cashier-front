@@ -1,6 +1,8 @@
 <template>
     <div class="home">
       <h1>{{ msg }}</h1>
+      <b-alert show>Hello</b-alert>
+      <icon name="beer"></icon>
     </div>
 </template>
 
