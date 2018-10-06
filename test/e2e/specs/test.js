@@ -20,9 +20,9 @@ module.exports = {
       .assert.containsText('div', 'Products')
       //
       // Click Location
-      .click('button[href="/create-location"]')
+      .click('button[href="/locations"]')
       .pause(100)
-      .assert.urlContains('/create-location')
+      .assert.urlContains('/locations')
       //
       // Click Create Location
       .url(devServer)

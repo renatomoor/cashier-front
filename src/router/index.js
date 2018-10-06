@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
 import Products from '@/components/Products'
-import Location from '@/components/Locations'
+import Locations from '@/components/Locations'
 import CreateLocation from '@/components/CreateLocation'
 
 Vue.use(Router)
@@ -20,9 +20,9 @@ export default new Router({
       component: Products
     },
     {
-      path: '/location',
-      name: 'Location',
-      component: Location
+      path: '/locations',
+      name: 'Locations',
+      component: Locations
     },
     {
       path: '/create-location',
