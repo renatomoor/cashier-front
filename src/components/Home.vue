@@ -1,8 +1,8 @@
 <template>
     <div class="home container">
         <h1 >{{ msg }}</h1>
-          <div  v-for="link in links" :key="link.id">
-            <router-link :to="link.url">
+          <div :name="link.name" v-for="link in links" :key="link.id">
+            <router-link  :to="link.url">
               <button role="button" :href="link.url" class="btn btn-outline-dark">
               {{link.name}}
               </button>
