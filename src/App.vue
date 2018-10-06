@@ -17,6 +17,17 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
+
+.vertical-center { /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+  display: flex;
+  align-items: center;
+  min-width: 10vh;
+  margin: 0 auto;
+}
+</style>
+
+<style lang="scss">
+  @import '~bootstrap/scss/bootstrap.scss';
 </style>
