@@ -3,18 +3,24 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faArrowAltCircleLeft, faPlus, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import Vuex from 'vuex'
+import store from './store'
 
 // Font awesome
-import 'vue-awesome/icons'
-import Icon from 'vue-awesome/components/Icon'
+library.add(faArrowAltCircleLeft, faPlus, faExclamationTriangle)
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 
-Vue.component('icon', Icon)
+Vue.use(Vuex)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

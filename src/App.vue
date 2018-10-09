@@ -23,8 +23,13 @@ export default {
   min-height: 100vh; /* These two lines are counted as one :-)       */
   display: flex;
   align-items: center;
-  min-width: 10vh;
   margin: 0 auto;
+}
+.icon-menu {
+  color: #bec4cb;
+}
+.icon-menu:hover {
+  color: white;
 }
 </style>
 

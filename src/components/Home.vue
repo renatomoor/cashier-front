@@ -34,7 +34,7 @@ export default {
     text-align: center;
   }
   button{
-    margin: 1.5vh;
+    margin: 1.2vh;
     font-size: 5vw;
     border-radius: 50px;
     width: 100%;
@@ -42,7 +42,7 @@ export default {
 
   .home {
     height: 70vh;
-    margin-top: 20vh;
+    margin-top: 10vh;
   }
   template div {
     background-color: #7f7f7f;
