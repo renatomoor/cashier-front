@@ -22,6 +22,10 @@ export default {
         { id: 2, name: 'Products', url: '/products' }
       ]
     }
+  },
+  mounted () {
+    this.$store.dispatch('locations/reload_location')
+    this.$store.dispatch('products/reload_products')
   }
 }
 </script>

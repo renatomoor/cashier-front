@@ -62,9 +62,7 @@ const mutations = {
         name: data.product.name,
         price: data.product.price
       })
-      .then(response => {
-        console.log('saved!')
-      })
+      .then(response => {})
       .catch(e => {
         console.log(e)
       })
