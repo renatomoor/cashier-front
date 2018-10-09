@@ -23,7 +23,6 @@ export default {
   min-height: 100vh; /* These two lines are counted as one :-)       */
   display: flex;
   align-items: center;
-  min-width: 10vh;
   margin: 0 auto;
 }
 </style>

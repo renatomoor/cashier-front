@@ -1,0 +1,48 @@
+<template>
+    <div class="card col-sm-12 col-md-4 col-lg-4 mx-auto">
+      <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">Price: {{ product.price }}</p>
+        <button class="btn btn-outline-dark" @click="showModal=true">Edit</button>
+      </div>
+      <div v-if="showModal">
+        <transition name="modal">
+          <edit v-on:changeStatus="updateStatus($event)"
+                v-on:deleteComponent="deleteComponent($event)"
+                v-bind:product="product"
+                v-bind:index="index"></edit>
+        </transition>
+      </div>
+    </div>
+</template>
+<script>
+import Edit from './Edit'
+export default {
+  name: 'product',
+  components: {Edit},
+  data () {
+    return {
+      showModal: false
+    }
+  },
+  methods: {
+    updateStatus: function (updatedStatus) {
+      this.showModal = updatedStatus
+    },
+    deleteComponent: function (index) {
+      this.$emit('deleteComponent', index)
+    }
+  },
+  props: [
+    'product',
+    'index'
+  ]
+}
+</script>
+
+<style scoped>
+  .card:hover {
+    background-color: #eeeeee;
+  }
+
+</style>
