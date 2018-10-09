@@ -18,7 +18,7 @@
             Price: <input type="number"  v-on:keyup.enter="save" v-model="product.price">
             <div  class="row p-3">
               <button type="button" class="btn btn-secondary m-3  col" @click="closeModal">Close</button>
-              <button type="button" class="btn btn-primary m-3  col" @click="save">Save changes</button>
+              <button type="button" class="btn btn-primary m-3  col" @click="create">Save changes</button>
             </div>
           </div>
         </div>
@@ -28,7 +28,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import LoaderModal from '../helpers/LoaderModal'
 
 export default {
@@ -40,8 +39,7 @@ export default {
       loading: false,
       product: {
         name: '',
-        price: '',
-        id: ''
+        price: ''
       }
     }
   },
@@ -49,25 +47,12 @@ export default {
     closeModal: function () {
       this.$emit('closeModal', false)
     },
-    save: function () {
-      this.loading = true
-      axios.post('http://dev-api-paintball.herokuapp.com/products',
-        {
-          icon_id: 5,
-          name: this.product.name,
-          price: this.product.price
-        })
-        .then(response => {
-          // JSON responses are automatically parsed.
-          this.product.id = response.data.id
-          this.loading = false
-          this.closeModal()
-          this.$emit('saveNewProduct', this.product)
-        })
-        .catch(e => {
-          console.log(e)
-          this.loading = false
-        })
+    create: function () {
+      let data = {
+        'product': this.product
+      }
+      this.$store.dispatch('products/create_product', data)
+      this.closeModal()
     }
   }
 }

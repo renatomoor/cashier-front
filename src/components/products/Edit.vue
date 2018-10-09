@@ -9,10 +9,7 @@
               <span aria-hidden="true" @click="changeStatus">&times;</span>
             </button>
           </div>
-          <div v-if="loading" class="modal-body">
-            <loaderModal></loaderModal>
-          </div>
-          <div v-if="deleteProduct == false && loading === false" class="modal-body">
+          <div v-if="deleteProduct == false" class="modal-body">
               Name: <input type="text" v-on:keyup.enter="save" v-model="product.name">
               <br><br>
               Price: <input type="number"  v-on:keyup.enter="save" v-model="product.price">
@@ -22,7 +19,7 @@
                 <button type="button" class="btn btn-primary m-3  col" @click="save">Save changes</button>
               </div>
           </div>
-          <div v-if="deleteProduct == true && loading === false" class="modal-body">
+          <div v-if="deleteProduct == true" class="modal-body">
             <font-awesome-icon class="icon-menu-danger m-3" icon="exclamation-triangle" size="5x"></font-awesome-icon>
              <h3> Are you sure you wnat to delete {{ product.name }} ?</h3>
             <div  class="row p-3">
@@ -38,7 +35,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import LoaderModal from '../helpers/LoaderModal'
 import Router from 'vue-router'
 export default {
@@ -48,47 +44,29 @@ export default {
   data () {
     return {
       showModal: true,
-      loading: false,
       deleteProduct: false
     }
   },
   methods: {
+    getdata: function () {
+      let data = {
+        'index': this.index,
+        'product': this.product
+      }
+      return data
+    },
     changeStatus: function () {
       this.$emit('changeStatus', false)
     },
     deleteComponent: function () {
-      this.loading = true
-      axios.delete('http://dev-api-paintball.herokuapp.com/products/' + this.product.id,
-        {
-          ok: 'true'
-        })
-        .then(reponse => {
-          this.$emit('deleteComponent', this.index)
-          this.loading = false
-        })
-        .catch(e => {
-          this.errors.push(e)
-        })
-      this.loading = false
+      let data = this.getdata()
+      this.$store.dispatch('products/delete_product', data)
+      this.changeStatus()
     },
     save: function () {
-      this.loading = true
-      axios.put('http://dev-api-paintball.herokuapp.com/products/' + this.product.id,
-        {
-          name: this.product.name,
-          price: this.product.price
-        })
-        .then(response => {
-          // JSON responses are automatically parsed.
-          this.products = response.data.products
-          this.loading = false
-          this.changeStatus()
-        })
-        .catch(e => {
-          this.errors.push(e)
-          this.loading = false
-          this.changeStatus()
-        })
+      let data = this.getdata()
+      this.$store.dispatch('products/save_product', data)
+      this.changeStatus()
     }
   },
   props: [

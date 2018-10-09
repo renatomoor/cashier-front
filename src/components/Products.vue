@@ -23,48 +23,37 @@
               <product  :key="product.id"
                         v-for="(product, index ) in products"
                         v-bind:product="product"
-                        v-bind:index="index"
-                        v-on:deleteComponent="deleteComponent($event)">
+                        v-bind:index="index">
               </product>
         </div>
       </div>
 </template>
 <script>
-import axios from 'axios'
+
 import Loader from './helpers/Loader'
 import Product from './products/Product'
 import router from '../router'
 import Create from './products/Create'
+import { mapState } from 'vuex'
 
 export default {
   name: 'Products',
   router,
   components: {Create, Product, Loader},
+  computed: mapState({
+    products: state => state.products.all,
+    loading: state => state.products.loading
+  }),
   data () {
     return {
-      loading: true,
       title: 'Product List',
-      showCreate: false,
-      products: []
+      showCreate: false
     }
   },
   mounted () {
-    this.loading = true
-    axios.get('http://dev-api-paintball.herokuapp.com/products')
-      .then(response => {
-        // JSON responses are automatically parsed.
-        this.products = response.data.products
-        this.loading = false
-      })
-      .catch(e => {
-        this.errors.push(e)
-        this.loading = false
-      })
+    this.$store.dispatch('products/reload_products')
   },
   methods: {
-    deleteComponent: function (index) {
-      this.products.splice(index, 1)
-    },
     closeModal: function (close) {
       this.showCreate = close
     },
@@ -78,12 +67,6 @@ export default {
 
 <style scoped>
   h1 {
-    color: white;
-  }
-  .icon-menu {
-    color: #bec4cb;
-  }
-  .icon-menu:hover {
     color: white;
   }
   li{

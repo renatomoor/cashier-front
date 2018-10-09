@@ -25,6 +25,12 @@ export default {
   align-items: center;
   margin: 0 auto;
 }
+.icon-menu {
+  color: #bec4cb;
+}
+.icon-menu:hover {
+  color: white;
+}
 </style>
 
 <style lang="scss">

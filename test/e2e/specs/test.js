@@ -15,7 +15,7 @@ module.exports = {
       .assert.elementPresent('.home')
       .assert.containsText('h1', 'Caisse Area')
       .assert.elementPresent('.home  ')
-      .assert.containsText('div', 'Locations')
+      .assert.containsText('div', 'locations')
       .assert.containsText('div', 'Create Location')
       .assert.containsText('div', 'Products')
       //
