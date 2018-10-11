@@ -1,5 +1,5 @@
 <template>
-    <div class="card col-sm-12 col-md-4 col-lg-4 mx-auto">
+    <div class="card col-6 col-lg-4">
       <div class="card-body">
         <h5 class="card-title">{{ product.name }}</h5>
         <p class="card-text">Price: {{ product.price }}</p>
@@ -43,6 +43,14 @@ export default {
 <style scoped>
   .card:hover {
     background-color: #eeeeee;
+  }
+  @media (max-width: 576px) {
+      h5, p {
+        font-size: 0.8em;
+      }
+      button {
+        font-size: 0.7em;
+      }
   }
 
 </style>

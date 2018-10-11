@@ -19,17 +19,8 @@ export default {
   color: #2c3e50;
 }
 
-.vertical-center { /* Fallback for browsers do NOT support vh unit */
-  min-height: 100vh; /* These two lines are counted as one :-)       */
-  display: flex;
-  align-items: center;
-  margin: 0 auto;
-}
 .icon-menu {
-  color: #bec4cb;
-}
-.icon-menu:hover {
-  color: white;
+  color: #5d5d5d;
 }
 </style>
 

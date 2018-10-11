@@ -1,17 +1,10 @@
 <template>
       <div class="">
-        <nav class="navbar navbar-light bg-dark sticky-top">
-          <li class="nav-item ">
-            <router-link to="/"><font-awesome-icon class="icon-menu " icon="arrow-alt-circle-left" size="3x"></font-awesome-icon></router-link>
-          </li>
-          <li class="nav-item ">
-            <h1 >{{ title }}</h1>
-          </li>
-          <li class="nav-item">
-            <font-awesome-icon class="icon-menu" icon="plus" size="3x" @click="showCreate = true"></font-awesome-icon>
-          </li>
+        <nav class="navbar navbar-light sticky-top bg-light">
+          <router-link class="navbar-brand" to="/"><font-awesome-icon class="icon-menu " icon="arrow-alt-circle-left" size="2x"></font-awesome-icon></router-link>
+            <h3>{{ title }}</h3>
+            <font-awesome-icon class="icon-menu" icon="plus" size="2x" @click="showCreate = true"></font-awesome-icon>
         </nav>
-
         <Loader v-if="loading" class=""></Loader>
         <div v-if="showCreate">
           <transition name="modal">
@@ -72,4 +65,8 @@ export default {
   li{
     margin: 0;
   }
+  .icon-menu:hover {
+    color: #343a40;
+  }
+
 </style>

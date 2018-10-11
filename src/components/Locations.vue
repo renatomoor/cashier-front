@@ -1,18 +1,15 @@
 <template>
   <div>
-    <nav class="navbar navbar-light bg-dark sticky-top">
-      <li class="nav-item ">
-        <router-link to="/">
-          <font-awesome-icon class="icon-menu"
-                             icon="arrow-alt-circle-left"
-                             size="3x"></font-awesome-icon>
+      <nav class="navbar navbar-light sticky-top bg-light">
+        <router-link class="mr-auto navbar-brand" to="/">
+          <font-awesome-icon class="icon-menu" icon="arrow-alt-circle-left" size="2x"></font-awesome-icon>
         </router-link>
-      </li>
-      <li class="nav-item ">
-        <h1 >{{ title }}</h1>
-      </li>
-      <li class="nav-item"></li>
-  </nav>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <h3 class="">{{ title }}</h3>
+          </li>
+        </ul>
+      </nav>
     <loader v-if="loading"></loader>
     <div v-else  class="container pt-2 row mx-auto">
       <location v-for="location in locations"

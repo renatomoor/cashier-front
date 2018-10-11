@@ -10,9 +10,8 @@
             </button>
           </div>
           <div v-if="deleteProduct == false" class="modal-body">
-              Name: <input type="text" v-on:keyup.enter="save" v-model="product.name">
-              <br><br>
-              Price: <input type="number"  v-on:keyup.enter="save" v-model="product.price">
+              <p>Name: <input type="text" v-on:keyup.enter="save" v-model="product.name"></p>
+              <p>Price: <input type="number"  v-on:keyup.enter="save" v-model="product.price"></p>
               <div  class="row p-3">
                 <button type="button" class="btn btn-danger text-center m-3 col" @click="deleteProduct = true" >Delete</button>
                 <button type="button" class="btn btn-secondary m-3  col" @click="changeStatus">Close</button>
@@ -95,6 +94,14 @@ export default {
   }
   .icon-menu-danger{
     color: #cc0000;
+  }
+  @media (max-width: 576px) {
+    h5, p {
+      font-size: 0.8em;
+    }
+    button {
+      font-size: 0.7em;
+    }
   }
 
 </style>
