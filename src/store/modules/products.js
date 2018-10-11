@@ -1,5 +1,5 @@
 import axios from 'axios'
-const rootApi = 'products'
+const rootApi = process.env.ROOT_API + 'products'
 
 // initial state
 const state = {
