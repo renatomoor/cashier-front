@@ -6,3 +6,4 @@ module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
   ROOT_API: '"https://dev-api-paintball.herokuapp.com"'
 })
+
