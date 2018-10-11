@@ -9,6 +9,7 @@
         <transition name="modal">
           <edit v-on:changeStatus="updateStatus($event)"
                 v-on:deleteComponent="deleteComponent($event)"
+                v-on:save="save($event)"
                 v-bind:product="product"
                 v-bind:index="index"></edit>
         </transition>
@@ -31,6 +32,9 @@ export default {
     },
     deleteComponent: function (index) {
       this.$emit('deleteComponent', index)
+    },
+    save: function (data) {
+      this.$store.dispatch('products/save_product', data)
     }
   },
   props: [

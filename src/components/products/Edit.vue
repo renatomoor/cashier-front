@@ -14,7 +14,7 @@
               <p>Price: <input type="number"  v-on:keyup.enter="save" v-model="product.price"></p>
               <div  class="row p-3">
                 <button type="button" class="btn btn-danger text-center m-3 col" @click="deleteProduct = true" >Delete</button>
-                <button type="button" class="btn btn-secondary m-3  col" @click="changeStatus">Close</button>
+                <button type="button" class="btn btn-secondary m-3  col" @click="close">Close</button>
                 <button type="button" class="btn btn-primary m-3  col" @click="save">Save changes</button>
               </div>
           </div>
@@ -23,7 +23,7 @@
              <h3> Are you sure you wnat to delete {{ product.name }} ?</h3>
             <div  class="row p-3">
                 <button type="button" class="btn btn-primary m-3  col" @click="deleteProduct = false">Back</button>
-                <button type="button" class="btn btn-secondary m-3  col" @click="changeStatus">Close</button>
+                <button type="button" class="btn btn-secondary m-3  col" @click="close">Close</button>
               <button type="button" class="btn btn-danger text-center m-3 col" @click="deleteComponent"> Delete </button>
               </div>
           </div>
@@ -43,7 +43,9 @@ export default {
   data () {
     return {
       showModal: true,
-      deleteProduct: false
+      deleteProduct: false,
+      'oldProductName': '',
+      'oldProductPrice': 0
     }
   },
   methods: {
@@ -53,6 +55,11 @@ export default {
         'product': this.product
       }
       return data
+    },
+    close: function () {
+      this.product.name = this.oldProductName
+      this.product.price = this.oldProductPrice
+      this.changeStatus()
     },
     changeStatus: function () {
       this.$emit('changeStatus', false)
@@ -64,9 +71,13 @@ export default {
     },
     save: function () {
       let data = this.getdata()
-      this.$store.dispatch('products/save_product', data)
+      this.$emit('save', data)
       this.changeStatus()
     }
+  },
+  mounted () {
+    this.oldProductName = this.product.name
+    this.oldProductPrice = this.product.price
   },
   props: [
     'product',
