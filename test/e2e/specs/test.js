@@ -15,20 +15,11 @@ module.exports = {
       .assert.elementPresent('.home')
       .assert.containsText('h1', 'Caisse Area')
       .assert.elementPresent('.home  ')
-      .assert.containsText('div', 'Locations')
-      .assert.containsText('div', 'Create Location')
-      .assert.containsText('div', 'Products')
       //
       // Click Location
       .click('button[href="/locations"]')
       .pause(100)
       .assert.urlContains('/locations')
-      //
-      // Click Create Location
-      .url(devServer)
-      .click('button[href="/create-location"]')
-      .pause(100)
-      .assert.urlContains('/create-location')
       //
       // Click Products
       .url(devServer)

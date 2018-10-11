@@ -18,7 +18,6 @@ export default {
       msg: 'Caisse Area',
       links: [
         { id: 0, name: 'Locations', url: '/locations' },
-        { id: 1, name: 'Create Location', url: '/create-location' },
         { id: 2, name: 'Products', url: '/products' }
       ]
     }
