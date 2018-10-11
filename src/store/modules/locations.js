@@ -1,5 +1,5 @@
 import axios from 'axios'
-const rootApi = process.env.ROOT_API + '/clients'
+const rootApi = process.env.ROOT_API + 'clients'
 
 // initial state
 const state = {
