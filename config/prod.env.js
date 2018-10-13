@@ -1,5 +1,5 @@
 'use strict'
 module.exports = {
   NODE_ENV: '"production"',
-  ROOT_API: JSON.stringify(process.env.API_URL),
+  ROOT_API: JSON.stringify(process.env.API_URL)
 }

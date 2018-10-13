@@ -22,7 +22,7 @@
 
 <script>
 import Loader from './helpers/Loader'
-import Location from './locations/Location'
+import Location from './locations/Locations-list'
 import { mapState } from 'vuex'
 
 export default {
