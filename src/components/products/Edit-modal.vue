@@ -6,7 +6,7 @@
           <div class="modal-header text-center">
             <h5 class="modal-title "> {{product.name}}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true" @click="changeStatus">&times;</span>
+              <span aria-hidden="true" class="exit-x" @click="close">&times;</span>
             </button>
           </div>
           <div v-if="deleteProduct == false" class="modal-body">
@@ -113,6 +113,9 @@ export default {
     button {
       font-size: 0.7em;
     }
+  }
+  .exit-x {
+    font-size: 1.4em;
   }
 
 </style>
