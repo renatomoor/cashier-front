@@ -1,9 +1,9 @@
 <template>
-    <div class="home container">
+    <div class="home ">
         <h1 >{{ msg }}</h1>
           <div :name="link.name" v-for="link in links" :key="link.id">
             <router-link  :to="link.url">
-              <button role="button" :href="link.url" class="btn btn-outline-dark">
+              <button role="button" :href="link.url" class="btn btn-outline-dark w-75">
               {{link.name}}
               </button>
             </router-link>
@@ -40,7 +40,6 @@ export default {
     margin: 1.2vh;
     font-size: 5vw;
     border-radius: 50px;
-    width: 100%;
   }
 
   .home {

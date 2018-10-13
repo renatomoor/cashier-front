@@ -8,8 +8,7 @@
       <span class="card-text">Joueurs: {{ location.location.players }}</span><br>
       <span class="card-text">{{ location.location.terrain.name }}</span><br>
       <span class="card-text">{{ getTypeName }}</span><br><br>
-
-      <button class="btn btn-outline-dark">Caisse</button>
+      <button class="btn btn-outline-dark"><font-awesome-icon class="w-75 icon" icon="money-check-alt" size="2x"></font-awesome-icon></button>
     </div>
   </div>
 </template>
@@ -44,4 +43,14 @@ export default {
     text-decoration: none;
     color: black;
   }
+  button .icon {
+    color: #5d5d5d;
+  }
+  button .icon:hover {
+    color: white;
+  }
+  .card:hover {
+    background-color: #eeeeee;
+  }
+
 </style>

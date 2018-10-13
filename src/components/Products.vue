@@ -24,9 +24,9 @@
 <script>
 
 import Loader from './helpers/Loader'
-import Product from './products/Product'
+import Product from './products/Product-card'
 import router from '../router'
-import Create from './products/Create'
+import Create from './products/Create-modal'
 import { mapState } from 'vuex'
 
 export default {

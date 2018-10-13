@@ -17,7 +17,7 @@
     </div>
 </template>
 <script>
-import Edit from './Edit'
+import Edit from './Edit-modal'
 export default {
   name: 'product',
   components: {Edit},
