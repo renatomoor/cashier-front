@@ -5,6 +5,9 @@ s<template>
 </template>
 
 <script>
+import jQuery from 'jquery'
+global.jQuery = jQuery
+global.$ = jQuery
 export default {
   name: 'App'
 }
@@ -12,11 +15,12 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  margin: 0;
 }
 
 .icon-menu {
@@ -25,5 +29,5 @@ export default {
 </style>
 
 <style lang="scss">
-  @import '~bootstrap/scss/bootstrap.scss';
+@import "~bootstrap/scss/bootstrap.scss";
 </style>

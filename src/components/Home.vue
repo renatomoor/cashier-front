@@ -23,30 +23,30 @@ export default {
     }
   },
   mounted () {
-    this.$store.dispatch('locations/reload_location')
+    this.$store.dispatch('locations/reload_locations')
     this.$store.dispatch('products/reload_products')
   }
 }
 </script>
 
 <style scoped>
-  h1 {
-    font-weight: normal;
-    font-size: 8vw;
-    margin-bottom: 8vh;
-    text-align: center;
-  }
-  button{
-    margin: 1.2vh;
-    font-size: 5vw;
-    border-radius: 50px;
-  }
+h1 {
+  font-weight: normal;
+  font-size: 8vw;
+  margin-bottom: 8vh;
+  text-align: center;
+}
+button {
+  margin: 1.2vh;
+  font-size: 5vw;
+  border-radius: 50px;
+}
 
-  .home {
-    height: 70vh;
-    margin-top: 10vh;
-  }
-  template div {
-    background-color: #7f7f7f;
-  }
+.home {
+  height: 70vh;
+  margin-top: 10vh;
+}
+template div {
+  background-color: #7f7f7f;
+}
 </style>

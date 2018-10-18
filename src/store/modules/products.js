@@ -32,7 +32,8 @@ const actions = {
 // mutations
 const mutations = {
   refreshProducts (state) {
-    axios.get(rootApi)
+    axios
+      .get(rootApi)
       .then(response => {
         state.all = response.data.products
         state.loading = false
@@ -43,8 +44,8 @@ const mutations = {
       })
   },
   deleteProduct (state, data) {
-    axios.delete(rootApi + '/' + data.product.id,
-      {
+    axios
+      .delete(rootApi + '/' + data.product.id, {
         ok: 'true'
       })
       .then(reponse => {
@@ -57,8 +58,8 @@ const mutations = {
       })
   },
   saveProduct (state, data) {
-    axios.put(rootApi + '/' + data.product.id,
-      {
+    axios
+      .put(rootApi + '/' + data.product.id, {
         name: data.product.name,
         price: data.product.price
       })
@@ -68,8 +69,8 @@ const mutations = {
       })
   },
   createProduct (state, data) {
-    axios.post(rootApi,
-      {
+    axios
+      .post(rootApi, {
         icon_id: 5,
         name: data.product.name,
         price: data.product.price

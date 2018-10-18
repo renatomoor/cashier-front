@@ -7,11 +7,11 @@
       </div>
       <div v-if="showModal">
         <transition name="modal">
-          <edit v-on:changeStatus="updateStatus($event)"
-                v-on:deleteComponent="deleteComponent($event)"
-                v-on:save="save($event)"
-                v-bind:product="product"
-                v-bind:index="index"></edit>
+          <edit @changeStatus="updateStatus($event)"
+                @deleteComponent="deleteComponent($event)"
+                @save="save($event)"
+                :product="product"
+                :index="index"></edit>
         </transition>
       </div>
     </div>
@@ -20,7 +20,7 @@
 import Edit from './Edit-modal'
 export default {
   name: 'product',
-  components: {Edit},
+  components: { Edit },
   data () {
     return {
       showModal: false
@@ -37,24 +37,21 @@ export default {
       this.$store.dispatch('products/save_product', data)
     }
   },
-  props: [
-    'product',
-    'index'
-  ]
+  props: ['product', 'index']
 }
 </script>
 
 <style scoped>
-  .card:hover {
-    background-color: #eeeeee;
+.card:hover {
+  background-color: #eeeeee;
+}
+@media (max-width: 576px) {
+  h5,
+  p {
+    font-size: 0.8em;
   }
-  @media (max-width: 576px) {
-      h5, p {
-        font-size: 0.8em;
-      }
-      button {
-        font-size: 0.7em;
-      }
+  button {
+    font-size: 0.7em;
   }
-
+}
 </style>

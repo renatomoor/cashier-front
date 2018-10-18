@@ -1,15 +1,6 @@
 <template>
   <div>
-      <nav class="navbar navbar-light sticky-top bg-light">
-        <router-link class="mr-auto navbar-brand" to="/">
-          <font-awesome-icon class="icon-menu" icon="arrow-alt-circle-left" size="2x"></font-awesome-icon>
-        </router-link>
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <h3 class="">{{ title }}</h3>
-          </li>
-        </ul>
-      </nav>
+    <locations-nav v-bind:title="title"></locations-nav>
     <loader v-if="loading"></loader>
     <div v-else  class="container pt-2 row mx-auto">
       <location v-for="location in locations"
@@ -23,27 +14,31 @@
 <script>
 import Loader from './helpers/Loader'
 import Location from './locations/Location-card'
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
+import LocationsNav from './locations/Locations-nav'
 
 export default {
   name: 'locations',
-  components: {Location, Loader},
+  components: { LocationsNav, Location, Loader },
   computed: mapState({
     locations: state => state.locations.all,
     loading: state => state.locations.loading
   }),
   data () {
     return {
-      title: 'locations'
+      title: 'Locations'
     }
   },
+  methods: {
+    ...mapActions('locations', ['reload_locations'])
+  },
   mounted () {
-    this.$store.dispatch('locations/reload_location')
+    this.reload_locations()
   }
 }
 </script>
 <style scoped>
- h1{
-   color: white;
- }
+h1 {
+  color: white;
+}
 </style>

@@ -32,7 +32,7 @@ import LoaderModal from '../helpers/LoaderModal'
 
 export default {
   name: 'Create',
-  components: {LoaderModal},
+  components: { LoaderModal },
   data () {
     return {
       showCreate: true,
@@ -49,7 +49,7 @@ export default {
     },
     create: function () {
       let data = {
-        'product': this.product
+        product: this.product
       }
       this.$store.dispatch('products/create_product', data)
       this.closeModal()
@@ -59,19 +59,19 @@ export default {
 </script>
 
 <style scoped>
-  .modal-mask {
-    position: fixed;
-    z-index: 9998;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, .5);
-    display: table;
-    transition: opacity .3s ease;
-  }
-  .modal-wrapper {
-    display: table-cell;
-    vertical-align: middle;
-  }
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: table;
+  transition: opacity 0.3s ease;
+}
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
 </style>
