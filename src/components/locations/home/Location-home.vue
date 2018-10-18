@@ -26,7 +26,7 @@ import Loader from '../../helpers/Loader'
 
 export default {
   namespaced: true,
-  name: 'Location-Home',
+  name: 'Location-home',
   computed: mapState({
     location: state => state.locations,
     loading: state => state.locations.loading
