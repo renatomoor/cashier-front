@@ -8,16 +8,14 @@
       <span class="card-text">Joueurs: {{ location.location.players }}</span><br>
       <span class="card-text">{{ location.location.terrain.name }}</span><br>
       <span class="card-text">{{ getTypeName }}</span><br><br>
-      <button class="btn btn-outline-dark"><font-awesome-icon class="w-75 icon" icon="money-check-alt" size="2x"></font-awesome-icon></button>
+      <button class="btn btn-outline-dark"  @click="$router.push({ path: `/location/${location.location.code}` })" ><font-awesome-icon class="w-75 icon" icon="money-check-alt" size="2x"></font-awesome-icon></button>
     </div>
   </div>
 </template>
 <script>
 export default {
   name: 'location',
-  props: [
-    'location'
-  ],
+  props: ['location'],
   computed: {
     getTypeName: function () {
       let name = this.location.location.type.name
@@ -31,26 +29,26 @@ export default {
 </script>
 
 <style scoped>
-  @media (max-width: 576px) {
-    h5, span {
-      font-size: 0.8em;
-    }
-    button {
-      font-size: 0.7em;
-    }
+@media (max-width: 576px) {
+  h5,
+  span {
+    font-size: 0.8em;
   }
-  a {
-    text-decoration: none;
-    color: black;
+  button {
+    font-size: 0.7em;
   }
-  button .icon {
-    color: #5d5d5d;
-  }
-  button .icon:hover {
-    color: white;
-  }
-  .card:hover {
-    background-color: #eeeeee;
-  }
-
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+button .icon {
+  color: #5d5d5d;
+}
+button .icon:hover {
+  color: white;
+}
+.card:hover {
+  background-color: #eeeeee;
+}
 </style>

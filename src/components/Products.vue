@@ -22,7 +22,6 @@
       </div>
 </template>
 <script>
-
 import Loader from './helpers/Loader'
 import Product from './products/Product-card'
 import router from '../router'
@@ -32,7 +31,7 @@ import { mapState } from 'vuex'
 export default {
   name: 'Products',
   router,
-  components: {Create, Product, Loader},
+  components: { Create, Product, Loader },
   computed: mapState({
     products: state => state.products.all,
     loading: state => state.products.loading
@@ -55,18 +54,16 @@ export default {
     }
   }
 }
-
 </script>
 
 <style scoped>
-  h1 {
-    color: white;
-  }
-  li{
-    margin: 0;
-  }
-  .icon-menu:hover {
-    color: #343a40;
-  }
-
+h1 {
+  color: white;
+}
+li {
+  margin: 0;
+}
+.icon-menu:hover {
+  color: #343a40;
+}
 </style>

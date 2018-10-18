@@ -4,13 +4,22 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faArrowAltCircleLeft, faPlus, faExclamationTriangle, faMoneyCheckAlt } from '@fortawesome/free-solid-svg-icons'
+import {
+  faArrowAltCircleLeft,
+  faPlus,
+  faExclamationTriangle,
+  faMoneyCheckAlt
+} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import Vuex from 'vuex'
 import store from './store'
-
 // Font awesome
-library.add(faArrowAltCircleLeft, faPlus, faExclamationTriangle, faMoneyCheckAlt)
+library.add(
+  faArrowAltCircleLeft,
+  faPlus,
+  faExclamationTriangle,
+  faMoneyCheckAlt
+)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.use(Vuex)

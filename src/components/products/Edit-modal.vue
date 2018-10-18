@@ -39,24 +39,24 @@ import Router from 'vue-router'
 export default {
   name: 'Edit',
   Router,
-  components: {LoaderModal},
+  components: { LoaderModal },
   data () {
     return {
       showModal: true,
       deleteProduct: false,
-      'oldProductName': '',
-      'oldProductPrice': 0
+      oldProductName: '',
+      oldProductPrice: 0
     }
   },
   methods: {
     getdata: function () {
       let data = {
-        'index': this.index,
-        'product': this.product
+        index: this.index,
+        product: this.product
       }
       return data
     },
-    close: function () {
+    closeModal: function () {
       this.product.name = this.oldProductName
       this.product.price = this.oldProductPrice
       this.changeStatus()
@@ -79,43 +79,40 @@ export default {
     this.oldProductName = this.product.name
     this.oldProductPrice = this.product.price
   },
-  props: [
-    'product',
-    'index'
-  ]
+  props: ['product', 'index']
 }
 </script>
 
 <style scoped>
-  .modal-mask {
-    position: fixed;
-    z-index: 9998;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, .5);
-    display: table;
-    transition: opacity .3s ease;
-  }
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: table;
+  transition: opacity 0.3s ease;
+}
 
-  .modal-wrapper {
-    display: table-cell;
-    vertical-align: middle;
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+.icon-menu-danger {
+  color: #cc0000;
+}
+@media (max-width: 576px) {
+  h5,
+  p {
+    font-size: 0.8em;
   }
-  .icon-menu-danger{
-    color: #cc0000;
+  button {
+    font-size: 0.7em;
   }
-  @media (max-width: 576px) {
-    h5, p {
-      font-size: 0.8em;
-    }
-    button {
-      font-size: 0.7em;
-    }
-  }
-  .exit-x {
-    font-size: 1.4em;
-  }
-
+}
+.exit-x {
+  font-size: 1.4em;
+}
 </style>
