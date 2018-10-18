@@ -15,7 +15,6 @@
     </div>
     </div>
 </template>
-p
 <script>
 import LocationNav from './Location-nav'
 import { mapState, mapActions } from 'vuex'
