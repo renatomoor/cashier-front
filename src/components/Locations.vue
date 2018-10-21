@@ -1,28 +1,26 @@
 <template>
   <div>
-    <locations-nav v-bind:title="title"></locations-nav>
-    <loader v-if="loading"></loader>
-    <div v-else  class="container pt-2 row mx-auto">
+    <v-container grid-list-md text-xs-center>
+    <v-layout row wrap>
       <location v-for="location in locations"
                 :key="location.id"
-                v-bind:location="location">
-      </location>
-    </div>
+                v-bind:location="location"/>
+    </v-layout>
+  </v-container>
   </div>
 </template>
 
 <script>
-import Loader from './helpers/Loader'
 import Location from './locations/Location-card'
 import { mapState, mapActions } from 'vuex'
-import LocationsNav from './locations/Locations-nav'
 
 export default {
   name: 'locations',
-  components: { LocationsNav, Location, Loader },
+  components: { Location },
   computed: mapState({
     locations: state => state.locations.all,
-    loading: state => state.locations.loading
+    loading: state => state.locations.loading,
+    nav: state => state.navigation
   }),
   data () {
     return {
@@ -34,6 +32,8 @@ export default {
   },
   mounted () {
     this.reload_locations()
+    this.nav.title = 'Location List'
+    this.nav.goBack = '/'
   }
 }
 </script>

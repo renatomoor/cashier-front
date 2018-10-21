@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import { library } from '@fortawesome/fontawesome-svg-core'
+import Vuetify from 'vuetify'
 import {
   faArrowAltCircleLeft,
   faPlus,
@@ -13,6 +14,8 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import Vuex from 'vuex'
 import store from './store'
+
+Vue.use(Vuetify)
 // Font awesome
 library.add(
   faArrowAltCircleLeft,

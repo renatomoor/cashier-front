@@ -1,16 +1,68 @@
 <template>
-  <div class="card col-12 col-sm-6 col-lg-4">
-    <div class="card-body">
-      <h5 class="card-title">{{ location.client.name + ' ' + location.client.last_name }}</h5>
-      <span class="card-text"><a :href="'tel:' + location.client.phone">{{ location.client.phone }}</a></span><br>
-      <span class="card-text"><a :href="'mailto:' + location.client.email">{{ location.client.email }}</a></span><br><br>
-      <span class="card-text">{{ location.location.hour_start }} - {{ location.location.hour_end }}</span><br>
-      <span class="card-text">Joueurs: {{ location.location.players }}</span><br>
-      <span class="card-text">{{ location.location.terrain.name }}</span><br>
-      <span class="card-text">{{ getTypeName }}</span><br><br>
-      <button class="btn btn-outline-dark"  @click="$router.push({ path: `/location/${location.location.code}` })" ><font-awesome-icon class="w-75 icon" icon="money-check-alt" size="2x"></font-awesome-icon></button>
-    </div>
-  </div>
+  <v-flex xs12 md6 lg4>
+    <v-card>
+      <v-toolbar color="blue-grey" dark>
+        <v-toolbar-title>{{ location.client.name + ' ' + location.client.last_name }}</v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-btn @click="$router.push({ path: `/location/${location.location.code}` })" icon>
+          <v-icon>send</v-icon>
+        </v-btn>
+      </v-toolbar>
+      <v-list-tile>
+        <v-list-tile-content>
+          <v-list-tile-title><p class="text-xs-center">{{ location.location.hour_start }} - {{ location.location.hour_end }}</p></v-list-tile-title>
+        </v-list-tile-content>
+      </v-list-tile>
+      <v-list-tile>
+        <v-list-tile-content>
+          <v-list-tile-title><p class="text-xs-center">Joueurs: {{ location.location.players }}</p></v-list-tile-title>
+        </v-list-tile-content>
+      </v-list-tile>
+      <v-list-tile>
+        <v-list-tile-content>
+          <v-list-tile-title><p class="text-xs-center">{{ location.location.terrain.name }}</p></v-list-tile-title>
+        </v-list-tile-content>
+      </v-list-tile>
+      <v-list-tile>
+        <v-list-tile-content>
+          <v-list-tile-title><p class="text-xs-center">{{ getTypeName }}</p></v-list-tile-title>
+        </v-list-tile-content>
+      </v-list-tile>
+      <v-list>
+      <v-list-group
+        :prepend-icon="'phone'"
+        no-action>
+        <v-list-tile slot="activator">
+          <v-list-tile-content>
+            <v-list-tile-title><b><p class="text-xs-center">Contacter</p></b></v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+
+        <v-list two-line>
+        <v-list-tile :href="'tel:' + location.client.phone">
+          <v-list-tile-action>
+            <v-icon color="indigo">phone</v-icon>
+          </v-list-tile-action>
+
+          <v-list-tile-content>
+            <v-list-tile-sub-title>{{ location.client.phone }}</v-list-tile-sub-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+      <v-list two-line>
+        <v-list-tile :href="'mailto:' + location.client.email">
+          <v-list-tile-action>
+            <v-icon color="indigo">mail</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-sub-title>{{ location.client.email }}</v-list-tile-sub-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+      </v-list-group>
+      </v-list>
+    </v-card>
+  </v-flex>
 </template>
 <script>
 export default {
@@ -29,26 +81,5 @@ export default {
 </script>
 
 <style scoped>
-@media (max-width: 576px) {
-  h5,
-  span {
-    font-size: 0.8em;
-  }
-  button {
-    font-size: 0.7em;
-  }
-}
-a {
-  text-decoration: none;
-  color: black;
-}
-button .icon {
-  color: #5d5d5d;
-}
-button .icon:hover {
-  color: white;
-}
-.card:hover {
-  background-color: #eeeeee;
-}
+
 </style>
