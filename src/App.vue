@@ -51,14 +51,14 @@
     <v-content>
       <router-view/>
     </v-content>
-    <v-navigation-drawer
-      temporary
-      :right="nav.right"
-      v-model="nav.rightDrawer"
-      v-if="nav.rightMenuShow"
-      fixed
-      app
-    >
+      <v-navigation-drawer
+        temporary
+        :right="nav.right"
+        v-model="nav.rightDrawer"
+        v-if="nav.rightMenuShow"
+        fixed
+        app
+      >
       <v-list>
         <v-list-tile @click="nav.right = !nav.right">
           <v-list-tile-action>
@@ -68,9 +68,6 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-footer :fixed="nav.fixed" app>
-      <span>&copy; 2017</span>
-    </v-footer>
   </v-app>
 </template>
 
@@ -97,3 +94,7 @@ export default {
   name: 'App'
 }
 </script>
+
+<style>
+
+</style>

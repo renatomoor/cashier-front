@@ -1,22 +1,7 @@
 <template>
-  <!--<div class="">-->
-      <!--<div class="card-body">-->
-        <!--<h5 class="card-title">{{ product.name }}</h5>-->
-        <!--<p class="card-text">Price: {{ product.price }}</p>-->
-        <!--<button class="btn btn-outline-dark" @click="showModal=true">Edit</button>-->
-      <!--</div>-->
-      <!--<div v-if="showModal">-->
-        <!--<transition name="modal">-->
-          <!--<edit @changeStatus="updateStatus($event)"-->
-                <!--@deleteComponent="deleteComponent($event)"-->
-                <!--@save="save($event)"-->
-                <!--:product="product"-->
-                <!--:index="index"></edit>-->
-        <!--</transition>-->
-      <!--</div>-->
   <v-flex >
       <v-card>
-        <v-toolbar color="#616161" dark>
+        <v-toolbar color="#616161" dark dense>
           <v-btn color="red" v-if="edit" icon @click="deleteProduct">
             <v-icon>delete_forever</v-icon>
           </v-btn>
@@ -33,7 +18,7 @@
           </v-btn>
         </v-toolbar>
 
-        <v-list-tile v-if="!edit" avatar>
+        <v-list-tile v-if="!edit">
           <v-list-tile-content>
             <v-list-tile-sub-title>Price</v-list-tile-sub-title>
           </v-list-tile-content>
@@ -42,20 +27,20 @@
           </v-list-tile-action>
         </v-list-tile>
 
-        <v-list-tile v-if="edit"  avatar>
+        <v-list-tile v-if="edit">
           <v-list-tile-content>
             <v-list-tile-sub-title>Price</v-list-tile-sub-title>
           </v-list-tile-content>
           <v-list-tile-action>
             <v-list-tile-sub-title>
-              <v-flex xs12>
+              <v-flex xs12 >
                 <v-text-field type="number" v-model="product.price"></v-text-field>
               </v-flex>
             </v-list-tile-sub-title>
           </v-list-tile-action>
         </v-list-tile>
 
-        <v-list-tile v-if="edit"  avatar>
+        <v-list-tile v-if="edit">
           <v-list-tile-content>
             <v-list-tile-sub-title>Name:</v-list-tile-sub-title>
           </v-list-tile-content>

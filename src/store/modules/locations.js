@@ -11,7 +11,11 @@ const state = {
 }
 
 // getters
-const getters = {}
+const getters = {
+  getLocation: state => code => {
+    return state[code]
+  }
+}
 
 // actions
 const actions = {
@@ -48,7 +52,7 @@ const mutations = {
   },
   refresh_location_by_code (state, code) {
     if (state[code] === undefined) {
-      state.loading = true
+      state.loading = false
     }
     if (!state.hasOwnProperty(code)) {
       Vue.set(state, code, '')

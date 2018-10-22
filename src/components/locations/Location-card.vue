@@ -1,5 +1,5 @@
 <template>
-  <v-flex xs12 md6 lg4>
+  <v-flex xs12 sm6 md4 lg4>
     <v-card>
       <v-toolbar color="blue-grey" dark>
         <v-toolbar-title>{{ location.client.name + ' ' + location.client.last_name }}</v-toolbar-title>
@@ -8,6 +8,7 @@
           <v-icon>send</v-icon>
         </v-btn>
       </v-toolbar>
+      <v-list dense>
       <v-list-tile>
         <v-list-tile-content>
           <v-list-tile-title><p class="text-xs-center">{{ location.location.hour_start }} - {{ location.location.hour_end }}</p></v-list-tile-title>
@@ -28,6 +29,7 @@
           <v-list-tile-title><p class="text-xs-center">{{ getTypeName }}</p></v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
+      </v-list>
       <v-list>
       <v-list-group
         :prepend-icon="'phone'"
@@ -38,7 +40,7 @@
           </v-list-tile-content>
         </v-list-tile>
 
-        <v-list two-line>
+        <v-list dense>
         <v-list-tile :href="'tel:' + location.client.phone">
           <v-list-tile-action>
             <v-icon color="indigo">phone</v-icon>
@@ -49,7 +51,7 @@
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
-      <v-list two-line>
+      <v-list dense>
         <v-list-tile :href="'mailto:' + location.client.email">
           <v-list-tile-action>
             <v-icon color="indigo">mail</v-icon>
@@ -61,6 +63,7 @@
       </v-list>
       </v-list-group>
       </v-list>
+
     </v-card>
   </v-flex>
 </template>

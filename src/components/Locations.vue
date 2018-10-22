@@ -1,6 +1,7 @@
 <template>
   <div>
-    <v-container grid-list-md text-xs-center>
+    <loader v-if="loading"></loader>
+    <v-container grid-list-sm text-xs-center>
     <v-layout row wrap>
       <location v-for="location in locations"
                 :key="location.id"
@@ -13,10 +14,11 @@
 <script>
 import Location from './locations/Location-card'
 import { mapState, mapActions } from 'vuex'
+import Loader from './locations/home/helper/loader'
 
 export default {
   name: 'locations',
-  components: { Location },
+  components: { Loader, Location },
   computed: mapState({
     locations: state => state.locations.all,
     loading: state => state.locations.loading,

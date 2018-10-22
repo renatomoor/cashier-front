@@ -1,6 +1,7 @@
 <template>
       <div >
-        <v-container grid-list-md text-xs-center>
+        <loader v-if="loading"></loader>
+        <v-container v-else grid-list-md text-xs-center >
           <v-layout row wrap>
             <product  :key="product.id"
                       v-for="(product, index ) in products"
@@ -66,16 +67,22 @@
 import Product from './products/Product-card'
 import router from '../router'
 import { mapState } from 'vuex'
+import Loader from './locations/home/helper/loader'
 
 export default {
   name: 'Products',
   router,
-  components: { Product },
-  computed: mapState({
-    products: state => state.products.all,
-    loading: state => state.products.loading,
-    nav: state => state.navigation
-  }),
+  components: { Loader, Product },
+  computed: {
+    ...mapState({
+      products: state => state.products.all,
+      loading: state => state.products.loading,
+      nav: state => state.navigation
+    }),
+    loadingState () {
+      return this.$store.state.products.loading
+    }
+  },
   data () {
     return {
       title: 'Product List',
