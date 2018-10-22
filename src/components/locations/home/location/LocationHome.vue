@@ -1,26 +1,26 @@
 <template>
   <div>
-      <loader v-if="loading"></loader>
-      <div v-else-if="location[code]" >
-        {{ getData() }}
-        <v-container grid-list-sm text-xs-center>
-          <v-layout row wrap>
-            <list :location="location[code]"/>
-            <paying :location="location[code]"/>
-          </v-layout>
-        </v-container>
-      </div>
-        </div>
+    <loader v-if="loading"></loader>
+    <div v-else-if="location[code]" >
+      {{ getData() }}
+      <v-container grid-list-sm text-xs-center>
+        <v-layout row wrap>
+          <list :location="location[code]"/>
+          <paying :location="location[code]"/>
+        </v-layout>
+      </v-container>
+    </div>
+  </div>
 </template>
 <script>
 import { mapState, mapActions, mapGetters } from 'vuex'
-import Loader from './helper/loader'
-import List from './location/List'
-import Paying from './location/Paying'
+import Loader from '../helper/loader'
+import List from '../location/List'
+import Paying from '../location/Paying'
 
 export default {
   namespaced: true,
-  name: 'Location-home',
+  name: 'LocationHome',
   computed: {
     ...mapState({
       location: state => state.locations,
@@ -32,7 +32,7 @@ export default {
   components: {
     Paying,
     List,
-    Loader,
+    Loader
   },
   data () {
     return {

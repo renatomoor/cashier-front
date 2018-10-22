@@ -4,7 +4,7 @@ import Home from '@/components/Home'
 import Products from '@/components/Products'
 import Locations from '@/components/Locations'
 import CreateLocation from '@/components/CreateLocation'
-import LocationHome from '@/components/locations/home/location-home'
+import LocationHome from '@/components/locations/home/location/LocationHome'
 
 Vue.use(Router)
 

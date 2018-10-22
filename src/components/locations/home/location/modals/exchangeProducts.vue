@@ -117,7 +117,7 @@
 </template>
 
 <script>
-import { mapState, mapActions} from 'vuex'
+import {mapState, mapActions} from 'vuex'
 export default {
   name: 'exchangeProducts',
   data () {
@@ -130,7 +130,7 @@ export default {
       apip: 0,
       rpil: 0,
       rpip: 0,
-      code: this.$route.params.code,
+      code: this.$route.params.code
     }
   },
   watch: {
