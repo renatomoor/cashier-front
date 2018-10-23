@@ -5,7 +5,7 @@
       {{ getData() }}
       <v-container grid-list-sm text-xs-center>
         <v-layout row wrap>
-          <list :location="location[code]"/>
+          <list v-if="!nav.drawerRight" :location="location[code]"/>
           <paying :location="location[code]"/>
         </v-layout>
       </v-container>
@@ -38,13 +38,7 @@ export default {
     return {
       code: this.$route.params.code,
       showModalProducts: false,
-      currentLocation: '',
-      headers: [
-        { text: 'Calories' },
-        { text: 'Fat (g)' },
-        { text: 'Carbs (g)' },
-        { text: 'Protein (g)' }
-      ]
+      currentLocation: ''
     }
   },
   methods: {
@@ -56,12 +50,19 @@ export default {
       this.currentLocation = code
     },
     getData () {
-      this.nav.title = this.location[this.code].client.name
+      const location = this.location[this.code]
+      this.nav.title = location.client.name + ' ' + location.client.last_name +
+      ' ' + location.location.hour_start + ' - ' + location.location.hour_end
     }
   },
   mounted () {
+    this.$store.dispatch('locations/reload_locations')
+    this.$store.dispatch('products/reload_products')
     this.reload(this.code)
     this.currentLocation = this.code
+    this.nav.goBack = '/locations'
+    this.nav.showDrawerMenu = true
+    this.nav.showDrawerRightMenu = true
   }
 }
 </script>

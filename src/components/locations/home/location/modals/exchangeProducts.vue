@@ -28,7 +28,7 @@
                 <v-toolbar-title>Liste a Payer</v-toolbar-title>
                 <v-spacer></v-spacer>
                 <v-btn @click="addInList(1)"  icon>
-                  <v-icon>exposure_plus_1</v-icon>
+                  <v-icon  >exposure_plus_1</v-icon>
                 </v-btn>
                 <v-spacer></v-spacer>
               </v-toolbar>
@@ -48,8 +48,8 @@
                            class="elevation-0 ">
                   <v-spacer></v-spacer>
                   <v-btn v-if="newValueList" @click="fromListToPay(1)">
-                    Un
-                    <v-icon>keyboard_arrow_right</v-icon>
+                    <v-icon class="hidden-xs-only">keyboard_arrow_right</v-icon>
+                    <v-icon class="hidden-sm-and-up" >keyboard_arrow_down</v-icon>
                   </v-btn>
                   <v-spacer></v-spacer>
                 </v-toolbar>
@@ -89,8 +89,8 @@
                            class="elevation-0 ">
                   <v-spacer></v-spacer>
                   <v-btn v-if="newValuePay" @click="fromPayToList(1)">
-                    Un
-                    <v-icon>keyboard_arrow_left</v-icon>
+                    <v-icon class="hidden-xs-only" >keyboard_arrow_left</v-icon>
+                    <v-icon class="hidden-sm-and-up" >keyboard_arrow_up</v-icon>
                   </v-btn>
                   <v-spacer></v-spacer>
                 </v-toolbar>
@@ -105,9 +105,6 @@
               thumb-color="black"
               :color="'green darken-1'"
               :track-color="'blue'"
-              step="1"
-              ticks="always"
-              tick-size="3"
             ></v-slider>
           </v-flex>
         </v-container>

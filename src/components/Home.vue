@@ -8,7 +8,7 @@
             <v-spacer></v-spacer>
           </v-toolbar>
           <v-card-text>
-            <v-btn @click="$router.push(link.url)" v-for="link in links" :key="link.id"  block color="secondary" dark>{{link.name}}</v-btn>
+            <v-btn @click="$router.push(link.url)" v-for="link in links" :key="link.id"  block color="secondary">{{link.name}}</v-btn>
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>

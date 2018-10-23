@@ -1,23 +1,15 @@
 
 // initial state
 const state = {
-  longMenuShow: false,
-  clipped: false,
-  leftMenuShow: false,
-  drawer: false,
-  fixedShow: false,
-  fixed: false,
-  items: [{
-    icon: '',
-    title: ''
-  }],
-  miniVariantShow: false,
-  miniVariant: false,
-  rightMenuShow: false,
-  right: false,
-  rightDrawer: false,
   title: '',
-  goBack: false
+  showDrawerMenu: false,
+  showDrawerRightMenu: false,
+  right: null,
+  drawer: false,
+  drawerRight: false,
+  goBack: false,
+  payingType: null
+
 }
 
 // getters
@@ -33,23 +25,14 @@ const actions = {
 // mutations
 const mutations = {
   START_NAV (state) {
-    state.longMenuShow = false
-    state.clipped = false
-    state.leftMenuShow = false
-    state.drawer = false
-    state.fixedShow = false
-    state.fixed = false
-    state.items = [{
-      icon: '',
-      title: ''
-    }]
-    state.miniVariantShow = false
-    state.miniVariant = false
-    state.rightMenuShow = false
-    state.right = false
-    state.rightDrawer = false
     state.title = ''
+    state.drawer = false
+    state.drawerRight = false
     state.goBack = false
+    state.showDrawerMenu = false
+    state.showDrawerRightMenu = false
+    state.right = null
+    state.payingType = null
   }
 }
 

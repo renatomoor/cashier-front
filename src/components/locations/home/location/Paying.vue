@@ -5,9 +5,6 @@
                dark >
       <v-toolbar-title>Paiement</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn icon>
-        <v-icon>add</v-icon>
-      </v-btn>
     </v-toolbar>
 
     <div v-if="location.products">
@@ -30,9 +27,6 @@
       <v-toolbar color="grey lighten-3"
                  dense
                  class="elevation-0 ">
-        <v-btn icon>
-          <v-icon>menu</v-icon>
-        </v-btn>
         <v-spacer></v-spacer>
         <v-spacer></v-spacer>
         <v-toolbar-title>{{ total }} CHF</v-toolbar-title>
