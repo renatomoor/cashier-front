@@ -8,8 +8,8 @@ const state = {
   drawer: false,
   drawerRight: false,
   goBack: false,
-  payingType: null
-
+  payingType: null,
+  location: null
 }
 
 // getters
@@ -33,6 +33,7 @@ const mutations = {
     state.showDrawerRightMenu = false
     state.right = null
     state.payingType = null
+    state.location = null
   }
 }
 

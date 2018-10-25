@@ -63,6 +63,7 @@ export default {
     this.nav.goBack = '/locations'
     this.nav.showDrawerMenu = true
     this.nav.showDrawerRightMenu = true
+    this.nav.location = this.code
   }
 }
 </script>

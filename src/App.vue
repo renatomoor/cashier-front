@@ -24,7 +24,6 @@
         <v-icon>{{nav.drawer ? 'remove' : 'add'}}</v-icon>
       </v-btn>
       <v-toolbar-tile v-if="nav.drawer" @click.stop="nav.drawer = !nav.drawer"></v-toolbar-tile>
-      <v-spacer></v-spacer>
       <v-toolbar-title v-if="nav.title">{{nav.title}}</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-side-icon v-if="nav.showDrawerRightMenu" @click.stop="nav.drawerRight = !nav.drawerRight" ></v-toolbar-side-icon>

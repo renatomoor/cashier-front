@@ -7,7 +7,8 @@ const rootApiLocationProducts = process.env.ROOT_API + 'locations/products/'
 // initial state
 const state = {
   all: [],
-  loading: false
+  loading: false,
+  dialog: null
 }
 
 // getters

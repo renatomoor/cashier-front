@@ -15,8 +15,7 @@
         dense
       >
         <template slot="items" slot-scope="props" v-if="props.item.products_in_payment">
-          <tr @click="dialog = props.item.id + '_in_Pay'" >
-            <exchange-products :index="props.index" :dialog="dialog === props.item.id + '_in_Pay'" :product="props.item" @close="close"/>
+          <tr @click="locations.dialog = props.item.id" >
           <td class="text-xs-left">{{ props.item.products_in_payment }}</td>
           <td class="text-xs-left">{{ props.item.name }}</td>
           <td class="text-xs-right">{{ props.item.price }} CHF</td>
@@ -37,6 +36,7 @@
 
 <script>
 import ExchangeProducts from './modals/exchangeProducts'
+import { mapState } from 'vuex'
 export default {
   name: 'Paying',
   components: {ExchangeProducts},
@@ -52,7 +52,10 @@ export default {
         total += product.products_in_payment * product.price
       })
       return total
-    }
+    },
+    ...mapState({
+      locations: state => state.locations
+    })
   },
   methods: {
     close () {

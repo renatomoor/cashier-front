@@ -38,7 +38,7 @@
           </v-list-tile-action>
 
           <v-list-tile-content>
-            <v-list-tile-title>Pay Card</v-list-tile-title>
+            <v-list-tile-title>Pay Card </v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
@@ -63,9 +63,13 @@
 import { mapState } from 'vuex'
 export default {
   name: 'HomeLocationActions',
-  computed: mapState({
-    nav: state => state.navigation
-  }),
+  computed: {
+    ...mapState({
+      nav: state => state.navigation,
+      locations: state => state.locations
+    }),
+
+  },
   methods: {
     payByCard () {
       this.nav.payingType = 'card'
@@ -75,6 +79,14 @@ export default {
       this.nav.payingType = 'money'
       this.nav.right = true
     }
+  },
+  data () {
+    return {
+      dialog: 0,
+      products: false
+    }
+  },
+  mounted () {
   }
 }
 </script>

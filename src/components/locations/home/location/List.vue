@@ -15,8 +15,7 @@
         dense
       >
         <template slot="items" slot-scope="props" v-if="props.item.products_in_list">
-          <tr @click="dialog = props.item.id + '_in_List'" >
-          <exchange-products :index="props.index" :dialog="dialog === props.item.id + '_in_List'" :product="props.item" @close="close"/>
+          <tr @click="locations.dialog = props.item.id" >
           <td class="text-xs-left">{{ props.item.products_in_list }}</td>
           <td class="text-xs-left">{{ props.item.name }}</td>
           <td class="text-xs-right">{{ props.item.price }} CHF</td>
@@ -37,6 +36,7 @@
 
 <script>
 import ExchangeProducts from './modals/exchangeProducts'
+import { mapState } from 'vuex'
 export default {
   name: 'List',
   components: {ExchangeProducts},
@@ -46,6 +46,9 @@ export default {
     }
   },
   computed: {
+    ...mapState({
+      locations: state => state.locations
+    }),
     total: function () {
       let total = 0
       this.location.products.forEach(function (product) {

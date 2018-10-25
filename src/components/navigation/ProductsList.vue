@@ -12,9 +12,9 @@
 
   <v-list dense v-if="locations.hasOwnProperty(code)">
 
-    <v-list-tile :key="product.id" v-for="(product, index) in locations[code].products" @click.stop="dialog = product.id + '_in_New'">
+    <v-list-tile :key="product.id" v-for="(product, index) in locations[code].products" @click.stop="locations.dialog = product.id">
       <div>
-        <exchange-products :index="index" :dialog="dialog === product.id + '_in_New'" :product="product" @close="close"/>
+        <exchange-products :index="index" :dialog="locations.dialog === product.id" :product="product" @close="close"/>
       </div>
       <v-list-tile-action>
         <v-icon>add</v-icon>
@@ -53,12 +53,11 @@ export default {
   }),
   methods: {
     close () {
-      this.dialog = false
+      this.locations.dialog = false
       this.$emit('close')
     }
   },
   mounted () {
-
   }
 
 }
