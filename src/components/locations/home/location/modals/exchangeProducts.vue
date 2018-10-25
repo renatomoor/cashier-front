@@ -21,13 +21,34 @@
               <v-toolbar color="blue"
                          dark >
                 <v-spacer></v-spacer>
-                <v-btn v-if="newValueList" @click="deleteInList(1)" icon>
+                <v-btn :disabled="!newValueList"
+                       @click="deleteInList(1)"
+                       round
+                       small
+                       color="red darken-4"
+                       @mousedown="start('deleteInList')"
+                       @mouseleave="stop"
+                       @mouseup="stop"
+                       @touchstart="start('deleteInList')"
+                       @touchend="stop"
+                       @touchmove="stop"
+                       @touchcancel="stop">
                   <v-icon>exposure_neg_1</v-icon>
                 </v-btn>
                 <v-spacer></v-spacer>
                 <v-toolbar-title>Liste a Payer</v-toolbar-title>
                 <v-spacer></v-spacer>
-                <v-btn @click="addInList(1)"  icon>
+                <v-btn @click="addInList(1)"
+                       round
+                       small
+                       color="green darken-4"
+                       @mousedown="start('addInList')"
+                       @mouseleave="stop"
+                       @mouseup="stop"
+                       @touchstart="start('addInList')"
+                       @touchend="stop"
+                       @touchmove="stop"
+                       @touchcancel="stop">
                   <v-icon  >exposure_plus_1</v-icon>
                 </v-btn>
                 <v-spacer></v-spacer>
@@ -47,7 +68,15 @@
                 <v-toolbar color="grey lighten-2"
                            class="elevation-0 ">
                   <v-spacer></v-spacer>
-                  <v-btn v-if="newValueList" @click="fromListToPay(1)">
+                  <v-btn v-if="newValueList"
+                         @click="fromListToPay(1)"
+                         @mousedown="start('fromListToPay')"
+                         @mouseleave="stop"
+                         @mouseup="stop"
+                         @touchstart="start('fromListToPay')"
+                         @touchend="stop"
+                         @touchmove="stop"
+                         @touchcancel="stop">
                     <v-icon class="hidden-xs-only">keyboard_arrow_right</v-icon>
                     <v-icon class="hidden-sm-and-up" >keyboard_arrow_down</v-icon>
                   </v-btn>
@@ -59,13 +88,34 @@
               <v-toolbar color="green darken-1"
                          dark >
                 <v-spacer></v-spacer>
-                <v-btn v-if="newValuePay" @click="deleteInPay(1)" icon>
+                <v-btn :disabled="!newValuePay"
+                       @click="deleteInPay(1)"
+                       round
+                       small
+                       color="red darken-4"
+                       @mousedown="start('deleteInPay')"
+                       @mouseleave="stop"
+                       @mouseup="stop"
+                       @touchstart="start('deleteInPay')"
+                       @touchend="stop"
+                       @touchmove="stop"
+                       @touchcancel="stop">
                   <v-icon>exposure_neg_1</v-icon>
                 </v-btn>
                 <v-spacer></v-spacer>
                 <v-toolbar-title>Paiement</v-toolbar-title>
                 <v-spacer></v-spacer>
-                <v-btn @click="addInPay(1)" icon>
+                <v-btn @click="addInPay(1)"
+                       round
+                       small
+                       color="green darken-4"
+                       @mousedown="start('addInPay')"
+                       @mouseleave="stop"
+                       @mouseup="stop"
+                       @touchstart="start('addInPay')"
+                       @touchend="stop"
+                       @touchmove="stop"
+                       @touchcancel="stop">
                   <v-icon>exposure_plus_1</v-icon>
                 </v-btn>
                 <v-spacer></v-spacer>
@@ -88,7 +138,15 @@
                 <v-toolbar color="grey lighten-2"
                            class="elevation-0 ">
                   <v-spacer></v-spacer>
-                  <v-btn v-if="newValuePay" @click="fromPayToList(1)">
+                  <v-btn v-if="newValuePay"
+                         @click="fromPayToList(1)"
+                         @mousedown="start('fromPayToList')"
+                         @mouseleave="stop"
+                         @mouseup="stop"
+                         @touchstart="start('fromPayToList')"
+                         @touchend="stop"
+                         @touchmove="stop"
+                         @touchcancel="stop">
                     <v-icon class="hidden-xs-only" >keyboard_arrow_left</v-icon>
                     <v-icon class="hidden-sm-and-up" >keyboard_arrow_up</v-icon>
                   </v-btn>
@@ -127,7 +185,8 @@ export default {
       apip: 0,
       rpil: 0,
       rpip: 0,
-      code: this.$route.params.code
+      code: this.$route.params.code,
+      interval: false
     }
   },
   watch: {
@@ -254,6 +313,40 @@ export default {
     setNewValues () {
       this.newValueList = this.productArray[0].product.products_in_list
       this.newValuePay = this.productArray[0].product.products_in_payment
+    },
+    start (action) {
+      if (!this.interval) {
+        switch (action) {
+          case 'addInList': {
+            this.interval = setInterval(() => this.addInList(1), 125)
+            break
+          }
+          case 'deleteInList': {
+            this.interval = setInterval(() => this.deleteInList(1), 125)
+            break
+          }
+          case 'addInPay': {
+            this.interval = setInterval(() => this.addInPay(1), 125)
+            break
+          }
+          case 'deleteInPay': {
+            this.interval = setInterval(() => this.deleteInPay(1), 125)
+            break
+          }
+          case 'fromListToPay': {
+            this.interval = setInterval(() => this.fromListToPay(1), 125)
+            break
+          }
+          case 'fromPayToList': {
+            this.interval = setInterval(() => this.fromPayToList(1), 125)
+            break
+          }
+        }
+      }
+    },
+    stop (action) {
+      clearInterval(this.interval)
+      this.interval = false
     }
   },
   props: ['dialog', 'product', 'index'],

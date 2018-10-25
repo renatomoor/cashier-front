@@ -4,6 +4,7 @@ import Vue from 'vue'
 const rootApiLocation = process.env.ROOT_API + 'clients/2018-10-06'
 const rootApiLocationByCode = process.env.ROOT_API + 'locations/'
 const rootApiLocationProducts = process.env.ROOT_API + 'locations/products/'
+const rootApiLocationPayment = process.env.ROOT_API + 'payments/'
 // initial state
 const state = {
   all: [],
@@ -89,9 +90,11 @@ const mutations = {
   },
   pay_products (state, data) {
     axios
-      .post(rootApiLocationProducts + data.code + '/' + data.id, data.products)
-      .then(response => {
-        console.log('Payment')
+      .put(rootApiLocationPayment + data.id + '/' + data.type_id, data.products)
+      .then(reponse => {
+        for (let i = 0; i <= state[data.code].products.length; i++) {
+          state[data.code].products[i].products_in_payment = 0
+        }
       })
       .catch(e => {
         console.log(e)
